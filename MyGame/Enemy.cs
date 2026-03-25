@@ -13,6 +13,8 @@ namespace MyGame
         private float health;
         private float shield;
 
+        private static int pickupNums;
+
         public Enemy(string name)
         {
             SetName(name);
@@ -78,6 +80,13 @@ namespace MyGame
                     shield += hp;
             }
 
+            pickupNums++;
+        }
+
+        public static int TotalPowerupPickedUp()
+        {
+            
+            return pickupNums;
         }
     }
 }

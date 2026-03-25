@@ -32,6 +32,8 @@ namespace MyGame
             loki.PickupPowerUp(PowerUp.Health, 23);
             Console.WriteLine($"{loki.GetName()} {loki.GetHealth()} {loki.GetShield()}");
 
+            Console.WriteLine($"This is how many pickups were used: {Enemy.TotalPowerupPickedUp()}");
+
         }
     }
 }
