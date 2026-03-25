@@ -15,7 +15,7 @@ namespace MyGame
 
             for (int i = 0; i < enemyNum; i++)
             {
-                Console.Write($"Nome do inimigo {i + 1}: ");
+                Console.Write($"Nome do inimigo {i+1}: ");
                 string newName = Console.ReadLine();
                 enemies[i] = new Enemy(newName);
             }
@@ -27,8 +27,10 @@ namespace MyGame
 
             loki.PickupPowerUp(PowerUp.Shield, 60);
             Console.WriteLine($"{loki.GetName()} {loki.GetHealth()} {loki.GetShield()}");
+
             loki.TakeDamage(70);
             Console.WriteLine($"{loki.GetName()} {loki.GetHealth()} {loki.GetShield()}");
+
             loki.PickupPowerUp(PowerUp.Health, 23);
             Console.WriteLine($"{loki.GetName()} {loki.GetHealth()} {loki.GetShield()}");
 
