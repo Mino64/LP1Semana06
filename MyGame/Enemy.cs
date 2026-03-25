@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace MyGame
 {
@@ -14,7 +15,7 @@ namespace MyGame
 
         public Enemy(string name)
         {
-            this.name = name;
+            SetName(name);
             health = 100;
             shield = 0;
         }
@@ -34,6 +35,49 @@ namespace MyGame
                 health -= damageStillToInflict;
                 if (health < 0) health = 0;
             }
+        }
+
+        public float GetHealth()
+        {
+            return health;
+        }
+
+        public float GetShield()
+        {
+            return shield;
+        }
+
+        public void SetName(string newName)
+        {
+            if (newName.Length > 8)
+            {
+                name = newName.Substring(0, 8);
+            }
+
+            else
+            {
+                name = newName;
+            }
+
+        }
+
+        public void PickupPowerUp(PowerUp power, float hp)
+        {
+            if (power == PowerUp.Health)
+            {
+                if (health + hp >= 100)
+                    health = 100;
+                else
+                    health += hp;
+            }
+            else if (power == PowerUp.Shield)
+            {
+                if (shield + hp >= 100)
+                    shield = 100;
+                else
+                    shield += hp;
+            }
+
         }
     }
 }
