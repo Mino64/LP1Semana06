@@ -26,7 +26,9 @@ namespace RandomDungeon
                 arena.AddEnemy(Enemy.GenerateRandomEnemy(int.Parse(args[0]) + 8));
                 arena.AddEnemy(Enemy.GenerateRandomEnemy(int.Parse(args[0]) + 9));
                 arena.AddEnemy(Enemy.GenerateRandomEnemy(int.Parse(args[0]) + 10));
-            } else {
+            }
+            else
+            {
                 // Gera 4 Inimigos Predefinidos
                 arena.AddEnemy(new Enemy("Goblin", 100, 10));
                 arena.AddEnemy(new Enemy("Orc", 120, 15));
@@ -36,26 +38,36 @@ namespace RandomDungeon
 
             // Mostra a Lista de Inimigos Atualmente na Arena
             // CÓDIGO AQUI
-            
+
             // Repetir Batalha (Enquanto Existe Mais do que 1 Inimigo)
-            while (arena.GetEnemies() != null)
+            while (arena.GetEnemies().Count > 1)
             {
                 // Obter a Lista Atual de Inimigos
                 List<Enemy> enemies = arena.GetEnemies();
+
 
                 // Selecionar Aleatoriamente um Atacante
                 int attackerIndex = random.Next(enemies.Count);
 
                 // Selecionar Aleatoriamente um Defensor
                 // Garantindo que Não Seja o Mesmo que o Atacante
-                int defenderIndex;
+                int defenderIndex = random.Next(enemies.Count);
+
+
+                if (defenderIndex == attackerIndex)
+                {
+                    defenderIndex = random.Next(enemies.Count);
+                }
                 // CÓDIGO AQUI
-                
+
                 // Obter os Objetos Atacante e Defensor
                 Enemy attacker = enemies[attackerIndex];
                 Enemy defender = enemies[defenderIndex];
 
+                Console.WriteLine($"{attacker}{defender}");
+
                 arena.Battle(attacker, defender);
+
 
             }
 

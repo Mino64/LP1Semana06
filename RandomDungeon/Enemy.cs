@@ -69,10 +69,10 @@ namespace RandomDungeon
         public static Enemy GenerateRandomEnemy(int seed)
         {
             
-            Random rando = new Random();
-            int i = rando.Next(0,DefaultNames.Length-1);
+            Random random = new Random();
+            int i = random.Next(0,DefaultNames.Length-1);
 
-            return new Enemy(DefaultNames.GetValue(i).ToString(), rando.Next(50,101), rando.Next(5,21));
+            return new Enemy(DefaultNames.GetValue(i).ToString(), random.Next(50,101), random.Next(5,21));
         }
     }
 }

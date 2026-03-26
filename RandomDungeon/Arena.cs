@@ -48,15 +48,24 @@ namespace RandomDungeon
             // Subtrai o Ataque do Atacante à Vida do Defensor
             // Garante que a Vida Não Fique Negativa
             // CÓDIGO AQUI
-            if (defHealth - attacker.GetAttack() > 0)
-                defHealth -= attacker.GetAttack();
+            if (defHealth - attacker.GetAttack() >= 0)
+            {
+                defender.SetHealth(defHealth - attacker.GetAttack());
+            }
             else
-                defHealth = 0;
+            {
+                defender.SetHealth(0);
+            }
+
 
             // Se a Vida do Defensor Chegar a 0, Remove-o da Arena
             // CÓDIGO AQUI
             if (defHealth == 0)
+            {
                 enemies.Remove(defender);
+                Console.WriteLine($"{attacker} Wins!");
+
+            }
         }
     }
 }
