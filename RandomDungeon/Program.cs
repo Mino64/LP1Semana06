@@ -53,7 +53,6 @@ namespace RandomDungeon
                 // Garantindo que Não Seja o Mesmo que o Atacante
                 int defenderIndex = random.Next(enemies.Count);
 
-
                 if (defenderIndex == attackerIndex)
                 {
                     defenderIndex = random.Next(enemies.Count);
@@ -64,13 +63,12 @@ namespace RandomDungeon
                 Enemy attacker = enemies[attackerIndex];
                 Enemy defender = enemies[defenderIndex];
 
-                Console.WriteLine($"{attacker}{defender}");
-
                 arena.Battle(attacker, defender);
 
 
             }
 
+            arena.ShowEnemies();
             Console.WriteLine($"{arena.GetEnemies()[0].GetName()} Wins!");
         }
     }

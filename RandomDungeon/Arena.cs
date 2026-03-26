@@ -36,8 +36,9 @@ namespace RandomDungeon
         // Exemplo: "Arena: Troll, Skeleton, Ogre"
         public void ShowEnemies()
         {
+            string name;
             // CÓDIGO AQUI
-            enemies.ToString();
+
 
         }
 
@@ -63,7 +64,6 @@ namespace RandomDungeon
             if (defHealth == 0)
             {
                 enemies.Remove(defender);
-                Console.WriteLine($"{attacker} Wins!");
 
             }
         }
