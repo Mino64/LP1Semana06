@@ -62,6 +62,7 @@ namespace RandomDungeon
         public override string ToString()
         {
             // CÓDIGO AQUI
+            return $"{GetName()} ({GetHealth()},{GetAttack()})";
         }
     }
 }
