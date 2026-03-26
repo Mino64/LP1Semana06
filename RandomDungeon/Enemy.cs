@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace RandomDungeon
 {
@@ -63,6 +64,15 @@ namespace RandomDungeon
         {
             // CÓDIGO AQUI
             return $"{GetName()} ({GetHealth()},{GetAttack()})";
+        }
+
+        public static Enemy GenerateRandomEnemy(int seed)
+        {
+            
+            Random rando = new Random();
+            int i = rando.Next(0,DefaultNames.Length-1);
+
+            return new Enemy(DefaultNames.GetValue(i).ToString(), rando.Next(50,101), rando.Next(5,21));
         }
     }
 }
